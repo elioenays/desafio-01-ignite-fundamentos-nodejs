@@ -1,11 +1,25 @@
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
 export default class TaskService {
   async create(data) {
-    const { title, description } = data
+    const task = await prisma.task.create(data)
+
+    return task
   }
 
-  async findOne(id) {}
+  async findOne(id) {
+    const task = await prisma.task.findUnique(id)
 
-  async findAll() {}
+    return task
+  }
+
+  async findAll() {
+    const tasks = await prisma.task.findMany()
+
+    return tasks
+  }
 
   async update(id) {}
 

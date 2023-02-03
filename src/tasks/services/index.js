@@ -22,8 +22,6 @@ export default class TaskService {
   }
 
   async findAll(title, description) {
-    console.log(description)
-
     if (title !== undefined) {
       const tasks = await prisma.task.findMany({
         where: { title: { contains: title } },

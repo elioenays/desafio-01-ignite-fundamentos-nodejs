@@ -48,8 +48,6 @@ export default class TaskController {
       response.status(404).json(error.message)
     })
 
-    console.log(task)
-
     return response.json(task)
   }
 }
